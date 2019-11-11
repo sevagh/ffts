@@ -1,0 +1,18 @@
+[package]
+name = "ffts-sys"
+version = "0.1.3"
+authors = ["Sevag Hanssian <sevag.hanssian@gmail.com>"]
+edition = "2018"
+repository = "https://github.com/sevagh/ffts"
+readme = "../../README.md"
+keywords = ["signal", "fft", "dsp"]
+description = "Rust binding for ffts (The Fastest Fourier Transform in the South)"
+license-file = "../../COPYRIGHT"
+
+[dependencies]
+
+[dev-dependencies]
+libc = "0.2.55"
+
+[build-dependencies]
+bindgen = "0.49.0"
