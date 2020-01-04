@@ -116,7 +116,9 @@ ffts_flush_instruction_cache(void *start, size_t length)
 #ifdef __APPLE__
     sys_icache_invalidate(start, length);
 #elif __ANDROID__
+#ifdef __ARM__
     cacheflush((long) start, (long) start + length, 0);
+#endif
 #elif __linux__
 #if GCC_VERSION_AT_LEAST(4,3)
     __builtin___clear_cache(start, (char*) start + length);

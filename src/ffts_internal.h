@@ -81,6 +81,16 @@ extern int posix_memalign(void **, size_t, size_t);
 extern void *valloc(size_t);
 #endif
 
+#ifndef valloc
+#include <malloc.h>
+#include <sys/sysconf.h>
+#define valloc(size) memalign(sysconf(_SC_PAGESIZE),size)
+#endif
+
+#ifndef cacheflush
+#include <unistd.h>
+#endif
+
 #ifdef _mm_malloc
 #ifndef HAVE__MM_MALLOC
 #define HAVE__MM_MALLOC

@@ -32,6 +32,12 @@
 #include "../include/ffts.h"
 #include "../src/ffts_attributes.h"
 
+#ifndef valloc
+#include <malloc.h>
+#include <sys/sysconf.h>
+#define valloc(size) memalign(sysconf(_SC_PAGESIZE),size)
+#endif
+
 #ifdef __ARM_NEON__
 #endif
 
